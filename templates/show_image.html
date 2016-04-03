@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Of Bikes</title>
+</head>
+<body>
+{% csrf_token %}
+{% for i in data %}
+        <span><img src="{{ i.image }}" onclick="get_details(this.id)" style="width:22%; height:"20%" " id="{{i.id}}" /></span>
+        <span style="margin:left;">Model: {{i.model}}</span>
+{% endfor %}
+</body>
+</html>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript">
+	function get_details(id){
+		window.location.href = "/view_details/?id="+id;
+	}
+
+</script>
